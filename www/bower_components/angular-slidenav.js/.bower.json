@@ -1,0 +1,13 @@
+{
+  "name": "angular-slidenav.js",
+  "homepage": "https://github.com/sthomp/angular-slidenav.js",
+  "_release": "aa09867856",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "aa0986785651f8f31a493df48ea99d9460fd6b08"
+  },
+  "_source": "git://github.com/sthomp/angular-slidenav.js.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/sthomp/angular-slidenav.js.git"
+}

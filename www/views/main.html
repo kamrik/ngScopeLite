@@ -1,0 +1,25 @@
+<div ng-include="'views/nav.html'"></div>
+<slidenav>
+    <slidenav-menu>
+        <div ng-include="'views/sidenav.html'"></div>
+    </slidenav-menu>
+
+    <slidenav-content>
+        <div class="container mycontainer">
+            <div ng-switch on="selectedScreen">
+                <div ng-switch-when="home">
+                    <div ng-include="'views/home.html'"></div>
+                </div>
+                <div ng-switch-when="about">
+                    <div ng-include="'views/about.html'"></div>
+                </div>
+                <div ng-switch-when="settings">
+                    <div ng-include="'views/settings.html'"></div>
+                </div>
+                <div ng-switch-when="sources">
+                    <div ng-include="'views/sources.html'"></div>
+                </div>
+            </div>
+        </div>
+    </slidenav-content>
+</slidenav>

@@ -1,0 +1,39 @@
+<div class="row-fluid">
+    <div id="left-panel">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <button class="btn wheelbutton" ng-click="changeLogVal('trange', -1)">&lt;</button>
+                <span class="midletter">T</span>
+                <button class="btn wheelbutton" ng-click="changeLogVal('trange', 1)">&gt;</button>
+            </li>
+
+            <li class="list-group-item">
+                <button class="btn wheelbutton" ng-click="changeLogVal('vrange', 1)">&lt;</button>
+                <span class="midletter">G</span>
+                <button class="btn wheelbutton" ng-click="changeLogVal('vrange', -1)">&gt;</button>
+            </li>
+
+            <li class="list-group-item">
+                <button class="btn wheelbutton" ng-click="changRelVal('voffset', vrange / 20, -1)">&lt;</button>
+                <span class="midletter">O</span>
+                <button class="btn wheelbutton" ng-click="changRelVal('voffset', vrange / 20, 1)">&gt;</button>
+            </li>
+
+            <li class="list-group-item">
+                <button class="btn wheelbutton" ng-click="changRelVal('tcursor1', trange / 20, -1)">&lt;</button>
+                <span class="midletter">C</span>
+                <button class="btn wheelbutton" ng-click="changRelVal('tcursor1', trange / 20, 1)">&gt;</button>
+            </li>
+
+            <li class="list-group-item">
+                <button class="btn wheelbutton" ng-click="changRelVal('tcursor2', trange / 20, -1)">&lt;</button>
+                <span class="midletter">C</span>
+                <button class="btn wheelbutton" ng-click="changRelVal('tcursor2', trange / 20, 1)">&gt;</button>
+            </li>
+
+        </ul>
+    </div>
+    <div id="graph">
+        <div id="graph-inner"></div>
+    </div>
+</div>

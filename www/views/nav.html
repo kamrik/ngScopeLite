@@ -1,0 +1,24 @@
+<nav class="navbar navbar-yellow fixed-to-top" role="navigation">
+    <div class="navbar-header">
+        <a class="btn btn-link btn navbar-btn pull-left" ng-click="toggleSideNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+
+        <!-- spacer -->
+        <a class="btn btn-link btn navbar-btn pull-left"></a>
+
+        <a class="btn btn-link btn navbar-btn pull-left" ng-click="playPause()">
+            <i class="fa fa-{{isPlaying?'pause':'play'}}"></i>
+        </a>
+
+        <a class="btn btn-link btn navbar-btn pull-left" ng-click="nextFrame(true)">
+            <i class="fa fa-repeat"></i>
+        </a>
+
+
+        <a class="btn btn-link btn navbar-btn pull-right" ng-click="selectScreen('settings')">
+            <i class="fa fa-cog"></i>
+        </a>
+
+    </div>
+</nav>

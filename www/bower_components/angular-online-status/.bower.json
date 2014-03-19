@@ -1,0 +1,13 @@
+{
+  "name": "angular-online-status",
+  "homepage": "https://github.com/infomofo/angular-online-status",
+  "_release": "3a7e54a69e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "3a7e54a69e495715849cabd143a2b4cb00381ada"
+  },
+  "_source": "git://github.com/infomofo/angular-online-status.git",
+  "_target": "*",
+  "_originalSource": "infomofo/angular-online-status"
+}

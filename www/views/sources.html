@@ -1,0 +1,81 @@
+<div class="panel">
+    <div>
+        <div class="input-group">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Channel: {{tmpChannel.number+1}}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="ch in [1,2,3,4]">
+                        <a href="#" ng-click="setTmpChannel(ch - 1)">Channel {{ch}}</a>
+                    </li>
+                </ul>
+            </div>
+            <span class="input-group-addon">
+                <button type="button" class="btn btn-default pull-right" ng-click="applySrcSelection()">Ok</button>
+            </span>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="panel">
+    Type
+    <select ng-model="tmpChannel.srcType" ng-options="srcType for srcType in srcTypes">
+    </select>
+    Enable:
+    <input type="checkbox" ng-checked="tmpChannel.active">
+
+</div>
+
+
+<div ng-switch on="tmpChannel.srcType">
+    <div ng-switch-when="simulated">
+
+        <div class="source-controls">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    Waveform1:
+                    <select name="waveform" ng-model="tmpChannel.srcOptions.waveform" ng-options="x for x in ['Sine', 'Triangle', 'Square', 'Unity', 'Random']">
+                    </select>
+                </li>
+                <li class="list-group-item">
+                    Mode:
+                    <select name="mode" ng-model="tmpChannel.srcOptions.mode" ng-options="x for x in ['Wave', 'Stream']">
+                    </select>
+                </li>
+                <li class="list-group-item">
+                    Timeslice
+                    <input type="text" ng-model="tmpChannel.srcOptions.timeslice" value="0.001">
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div ng-switch-when="audio">
+
+        <div class="source-controls">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    Channel:
+                    <input type="radio" name="channel" value="Left" ng-model="tmpChannel.srcOptions.channel">
+                    <span></span>
+                    <input type="radio" name="channel" value="Right" ng-model="tmpChannel.srcOptions.channel">
+                    <span>{{tmpChannel.srcOptions.channel}}</span>
+                </li>
+                <li class="list-group-item">
+                    Gain
+                    <input type="text" ng-model="tmpChannel.srcOptions.gain">
+                </li>
+                <li class="list-group-item">
+                    Timeslice
+                    <input type="text" ng-model="tmpChannel.srcOptions.timeslice">
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
