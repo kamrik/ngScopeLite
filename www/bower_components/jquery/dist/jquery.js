@@ -5553,17 +5553,35 @@ function addGetHookIf( conditionFn, hookFn ) {
 	div.cloneNode( true ).style.backgroundClip = "";
 	support.clearCloneStyle = div.style.backgroundClip === "content-box";
 
-	container.style.cssText = "border:0;width:0;height:0;position:absolute;top:0;left:-9999px;" +
-		"margin-top:1px";
+    var s = container.style;
+    s.border = 0;
+    s.width = 0;
+    s.height = 0;
+    s.position = "absolute";
+    s.top = 0;
+    s.left = "-9999px";
+    s.marginTop = "1px";
+
+	//container.style.cssText = "border:0;width:0;height:0;position:absolute;top:0;left:-9999px;margin-top:1px";
 	container.appendChild( div );
 
 	// Executing both pixelPosition & boxSizingReliable tests require only one layout
 	// so they're executed at the same time to save the second computation.
 	function computePixelPositionAndBoxSizingReliable() {
 		// Support: Firefox, Android 2.3 (Prefixed box-sizing versions).
-		div.style.cssText = "-webkit-box-sizing:border-box;-moz-box-sizing:border-box;" +
-			"box-sizing:border-box;padding:1px;border:1px;display:block;width:4px;margin-top:1%;" +
-			"position:absolute;top:1%";
+        var s = div.style;
+        s.position = "absolute";
+        s.top = "1%";
+        s.marginTop = "1%";
+        s.width = "4px";
+        s.display = "block";
+        s.bottom = "1px";
+        s.border = "1px";
+        s.padding = "1px";
+        s.boxSizing = "border-box";
+		//div.style.cssText = "-webkit-box-sizing:border-box;-moz-box-sizing:border-box;" +
+//			"box-sizing:border-box;padding:1px;border:1px;display:block;width:4px;margin-top:1%;" +
+//			"position:absolute;top:1%";
 		docElem.appendChild( container );
 
 		var divStyle = window.getComputedStyle( div, null );
@@ -5597,7 +5615,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 				// This support function is only executed once so no memoizing is needed.
 				var ret,
 					marginDiv = div.appendChild( document.createElement( "div" ) );
-				marginDiv.style.cssText = div.style.cssText = divReset;
+				//marginDiv.style.cssText = div.style.cssText = divReset;
 				marginDiv.style.marginRight = marginDiv.style.width = "0";
 				div.style.width = "1px";
 				docElem.appendChild( container );
