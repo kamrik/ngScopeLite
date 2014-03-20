@@ -4,14 +4,19 @@
   "manifest_version": 2,
   "version": "0.1.1",
   "offline_enabled": true,
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "app": {
     "background": {
       "scripts": ["background.js"]
     }
   },
-  "permissions": [
-    "<all_urls>",
-    "storage"
+  "permissions" : [
+    "audioCapture","videoCapture", "audio","serial","usb",
+    { "usbDevices" : [
+        { "vendorId":1027, "productId":24577},
+        { "vendorId":5824, "productId":1155},
+        { "vendorId":4292, "productId":60000},
+        { "vendorId":9025, "productId":67}
+      ]
+    }
   ]
 }
