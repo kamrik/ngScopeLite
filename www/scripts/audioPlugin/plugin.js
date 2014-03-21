@@ -18,8 +18,8 @@ function audioPlugin(name) {
   var lasttick=0;
   var cycleSize = (bufferSize/cycles); // samples/ cycle
 
-  var controls = { 
-      timeslice : { datatype : 'float', label: 'Time Slice', units : 'seconds', value : '0.001', defaultValue : '0.001', readonly : false}, 
+  var controls = {
+      timeslice : { datatype : 'float', label: 'Time Slice', units : 'seconds', value : '0.001', defaultValue : '0.001', readonly : false},
       gain : { datatype : 'float', label: 'Gain', units : 'gain', value : 1, defaultValue : 1 , readonly: false},
       channel : { datatype : 'select', label: 'Channel', units : 'audio', choices: ['Left','Right'], value : 'Left', defaultValue : 'Left', readonly: false}
   }
@@ -29,7 +29,7 @@ function audioPlugin(name) {
   this.onReset;
   this.onUpdate;
   this.bufferType = 'PERIODIC';
-  this.deltaT = 0;
+  this.deltaT = 1.0 / 44100;
   this.offset=0;
   this.maxValue=1;
   this.minValue=-1;
@@ -85,7 +85,7 @@ function audioPlugin(name) {
             console.log('Setting: '+key+'='+value);
             changed=true;
           }
-        }  
+        }
       }
     }
     if(changed) {
