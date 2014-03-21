@@ -17,22 +17,22 @@ htmlScopeApp.controller('MainCtrl', function ($scope, slidenav) {
             number: i,
             active: false,
             buffer: {},
-            srcType: 'simulated',
+            srcType: 'audio',
             srcOptions: null,
         };
         $scope.channels.push(channel);
     }
     $scope.channels[0].active = true;
-    $scope.channels[1].active = true;
+    $scope.channels[1].active = false;
 
     $scope.isPlaying = false;
     $scope.tscale = 1000; // 1000 means ms 1e6 would mean us.
-    $scope.trange = 1000;
-    $scope.vrange = 500;
-    $scope.voffset = 0;
+    $scope.trange = 30;
+    $scope.vrange = 1;
+    $scope.voffset = -0.5;
     $scope.show_cursors = true;
-    $scope.tcursor1 = -0.4;
-    $scope.tcursor2 = -0.45;
+    $scope.tcursor1 = -20;
+    $scope.tcursor2 = -40;
 
 
     $scope.srcDefaults = {
@@ -61,13 +61,13 @@ htmlScopeApp.controller('MainCtrl', function ($scope, slidenav) {
 
     $scope.sourceFactories = {
         simulated: function () {
-            return new signalPlugin('signals');
+            return new signalPlugin('sim_src');
         },
         audio: function () {
-            return new audioPlugin('signals');
+            return new audioPlugin('audio_src');
         },
         serial: function () {
-            return createSerialPlugin('some_name');
+            return createSerialPlugin('serial_src');
         },
     };
 
@@ -77,11 +77,11 @@ htmlScopeApp.controller('MainCtrl', function ($scope, slidenav) {
     $scope.channels.forEach(function (channel) {
         if (!channel.active)
             return;
-        selectSource(channel.number, 'simulated');
+        selectSource(channel.number, 'audio');
     });
-    updateSrcOptions(1, {
-        waveform: "Triangle"
-    });
+    //updateSrcOptions(1, {
+    //    waveform: "Triangle"
+    //});
 
     setTmpChannel(0);
 
