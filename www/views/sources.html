@@ -24,7 +24,7 @@
 
     <div class="panel">
         Type
-        <select ng-model="tmpChannel.srcType" ng-options="srcType for srcType in srcTypes">
+        <select class="form-control" ng-model="tmpChannel.srcType" ng-options="srcType for srcType in srcTypes">
         </select>
         Enable:
         <input type="checkbox" ng-checked="tmpChannel.active">
@@ -39,12 +39,12 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         Waveform1:
-                        <select name="waveform" ng-model="tmpChannel.srcOptions.waveform" ng-options="x for x in ['Sine', 'Triangle', 'Square', 'Unity', 'Random']">
+                        <select class="form-control" name="waveform" ng-model="tmpChannel.srcOptions.waveform" ng-options="x for x in ['Sine', 'Triangle', 'Square', 'Unity', 'Random']">
                         </select>
                     </li>
                     <li class="list-group-item">
                         Mode:
-                        <select name="mode" ng-model="tmpChannel.srcOptions.mode" ng-options="x for x in ['Wave', 'Stream']">
+                        <select class="form-control" name="mode" ng-model="tmpChannel.srcOptions.mode" ng-options="x for x in ['Wave', 'Stream']">
                         </select>
                     </li>
                     <li class="list-group-item">
